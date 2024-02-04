@@ -11,8 +11,8 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 app = func.FunctionApp()
 
 @app.function_name(name="timer_rg_garbage_collector")
-# @app.schedule(schedule="0 0 0 * * *", arg_name="timer", run_on_startup=True,
-#               use_monitor=False)
+@app.schedule(schedule="0 0 0 * * *", arg_name="timer", run_on_startup=True,
+              use_monitor=True)
 def main(timer: func.TimerRequest) -> None:
     """Timer trigger function for scanning Resource Groups for deletion.
 
