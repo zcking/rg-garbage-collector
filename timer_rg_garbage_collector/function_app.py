@@ -19,6 +19,8 @@ def main(timer: func.TimerRequest) -> None:
     Args:
         timer (func.TimerRequest): azure function timer request
     """
+    print("Function starting...")
+    logging.info('Python timer trigger function started.')
     if timer.past_due:
         logging.info('The timer is past due!')
 
