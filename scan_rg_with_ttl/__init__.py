@@ -15,18 +15,18 @@ TAG_DELETE_AT = "DeleteAt"
 app = func.FunctionApp()
 
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
+def main(myTimer: func.TimerRequest) -> None:
     """Timer trigger function for scanning Resource Groups for deletion.
 
     The following features are implemented:
     - Tag "DeleteAt" is used to give a date when the resource group should be deleted
 
-    TODO: refactor to use a timer trigger instead of HTTP trigger
     Args:
         timer (func.TimerRequest): azure function timer request
     """
     print("Function starting...")
-    logging.info('Request received: %s %s', req.method, req.url)
+    if myTimer.past_due:
+        logging.warning("The timer is past due!")
 
     # Create a credential object using the default Azure credentials
     credential = DefaultAzureCredential()

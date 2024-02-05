@@ -2,19 +2,10 @@
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "authLevel": "function",
-      "type": "httpTrigger",
+      "name": "myTimer",
+      "type": "timerTrigger",
       "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
+      "schedule": "0 0 9 * * *"
     }
   ]
 }
