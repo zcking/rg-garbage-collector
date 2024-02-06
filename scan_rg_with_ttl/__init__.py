@@ -67,4 +67,4 @@ def main(myTimer: func.TimerRequest) -> None:
     response_body = json.dumps({
         "deleted": flagged_resource_groups,
     })
-    return func.HttpResponse(response_body, mimetype="application/json")
+    print(response_body)
